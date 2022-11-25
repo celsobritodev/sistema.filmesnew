@@ -52,7 +52,7 @@ public static void main(String[] args) {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 		try {
-			Artista artista = new Artista(6, "Cuca", "Brasil", new BigDecimal("500.73"),
+			Artista artista = new Artista(6L, "Cuca", "Brasil", new BigDecimal("500.73"),
 					sdf.parse("03/11/1966"));
 			ArtistaDAO artistaDAO = new ArtistaDAO();
 			artistaDAO.alterar(artista);
@@ -67,7 +67,7 @@ public static void main(String[] args) {
 	public static void testExcluir() {
 		
 		Artista artista = new Artista();
-		artista.setCodArtista(4);
+		artista.setCodArtista(4L);
 	
 		ArtistaDAO artistaDAO = new ArtistaDAO();
 		artistaDAO.excluir(artista);
@@ -100,6 +100,6 @@ public static void main(String[] args) {
 
 	public static void testBuscarPorCod() {
 	    ArtistaDAO artistaDAO = new ArtistaDAO();
-		System.out.println(artistaDAO.buscarPorCod(1));
+		System.out.println(artistaDAO.buscarPorCod(1L));
 	}
 }

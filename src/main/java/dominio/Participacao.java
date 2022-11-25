@@ -7,7 +7,7 @@ import java.util.Objects;
 public class Participacao implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	private Integer codParticipacao;
+	private Long codParticipacao;
 	private String personagem;
 	private BigDecimal desconto;
 
@@ -18,7 +18,7 @@ public class Participacao implements Serializable {
 
 	}
 
-	public Participacao(Integer codParticipacao, String personagem, BigDecimal desconto, Filme filme, Artista artista) {
+	public Participacao(Long codParticipacao, String personagem, BigDecimal desconto, Filme filme, Artista artista) {
 		super();
 		this.codParticipacao = codParticipacao;
 		this.personagem = personagem;
@@ -29,11 +29,11 @@ public class Participacao implements Serializable {
 		artista.addParticipacao(this);
 	}
 
-	public Integer getCodParticipacao() {
+	public Long getCodParticipacao() {
 		return codParticipacao;
 	}
 
-	public void setCodParticipacao(Integer codParticipacao) {
+	public void setCodParticipacao(Long codParticipacao) {
 		this.codParticipacao = codParticipacao;
 	}
 

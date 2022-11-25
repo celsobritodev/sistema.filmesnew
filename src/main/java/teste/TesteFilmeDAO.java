@@ -29,7 +29,7 @@ public static void main(String[] args) {
 	
 	
 	public static void testAlterar() {
-		Filme f1 = new Filme(1, "O aviador maluco", 170, 2005);
+		Filme f1 = new Filme(1L, "O aviador maluco", 170, 2005);
 		
 		FilmeDAO filmeDAO = new FilmeDAO();
 		filmeDAO.alterar(f1);
@@ -38,7 +38,7 @@ public static void main(String[] args) {
 	
 	public static void testExcluir() {
 		
-		Filme f2 = new Filme(3, "Titanicr", 195, 1997);
+		Filme f2 = new Filme(3L, "Titanicr", 195, 1997);
 	
 		FilmeDAO filmeDAO = new FilmeDAO();
 		filmeDAO.excluir(f2);
@@ -62,6 +62,6 @@ public static void main(String[] args) {
 
 	public static void testBuscarPorCod() {
 	    FilmeDAO filmeDAO = new FilmeDAO();
-		System.out.println(filmeDAO.buscarPorCod(1));
+		System.out.println(filmeDAO.buscarPorCod(1L));
 	}
 }

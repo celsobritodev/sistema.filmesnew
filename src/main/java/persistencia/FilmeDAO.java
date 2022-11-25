@@ -98,7 +98,7 @@ public class FilmeDAO {
 			ResultSet resultado = preparador.executeQuery();
 			while (resultado.next()) {
 				Filme filme = new Filme();
-				filme.setCodFilme(resultado.getInt("codFilme"));
+				filme.setCodFilme(resultado.getLong("codFilme"));
 				filme.setAno(resultado.getInt("ano"));
 				filme.setDuracao(resultado.getInt("duracao"));
 				filme.setTitulo(resultado.getString("titulo"));
@@ -113,18 +113,18 @@ public class FilmeDAO {
 
 	}
 
-	public Filme buscarPorCod(Integer codFilme) {
+	public Filme buscarPorCod(Long codFilme) {
 		String sql = "SELECT * FROM TB_FILME WHERE codFilme =?";
 		PreparedStatement preparador;
 		Filme filme = null;
 		try {
 			preparador = con.prepareStatement(sql);
-			preparador.setInt(1, codFilme);
+			preparador.setLong(1, codFilme);
 			ResultSet resultado = preparador.executeQuery();
 
 			if (resultado.next()) {
 				filme = new Filme();
-				filme.setCodFilme(resultado.getInt("codFilme"));
+				filme.setCodFilme(resultado.getLong("codFilme"));
 				filme.setAno(resultado.getInt("ano"));
 				filme.setDuracao(resultado.getInt("duracao"));
 				filme.setTitulo(resultado.getString("titulo"));
@@ -151,7 +151,7 @@ public class FilmeDAO {
 
 			while (resultado.next()) {
 				Filme filme = new Filme();
-				filme.setCodFilme(resultado.getInt("codFilme"));
+				filme.setCodFilme(resultado.getLong("codFilme"));
 				filme.setAno(resultado.getInt("ano"));
 				filme.setDuracao(resultado.getInt("duracao"));
 				filme.setTitulo(resultado.getString("titulo"));

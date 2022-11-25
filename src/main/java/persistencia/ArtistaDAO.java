@@ -106,7 +106,7 @@ public class ArtistaDAO {
 			ResultSet resultado = preparador.executeQuery();
 			while (resultado.next()) {
 				Artista artista = new Artista();
-				artista.setCodArtista(resultado.getInt("codArtista"));
+				artista.setCodArtista(resultado.getLong("codArtista"));
 				artista.setCache(resultado.getBigDecimal("cache"));
 				artista.setNacionalidade(resultado.getString("nacionalidade"));
 				artista.setNascimento(resultado.getDate("nascimento"));
@@ -122,18 +122,18 @@ public class ArtistaDAO {
 
 	}
 
-	public Artista buscarPorCod(Integer codArtista) {
+	public Artista buscarPorCod(Long codArtista) {
 		String sql = "SELECT * FROM TB_ARTISTA WHERE codArtista =?";
 		PreparedStatement preparador;
 		Artista artista = null;
 		try {
 			preparador = con.prepareStatement(sql);
-			preparador.setInt(1, codArtista);
+			preparador.setLong(1, codArtista);
 			ResultSet resultado = preparador.executeQuery();
 
 			if (resultado.next()) {
 				artista = new Artista();
-				artista.setCodArtista(resultado.getInt("codArtista"));
+				artista.setCodArtista(resultado.getLong("codArtista"));
 				artista.setCache(resultado.getBigDecimal("cache"));
 				artista.setNacionalidade(resultado.getString("nacionalidade"));
 				artista.setNascimento(resultado.getDate("nascimento"));
@@ -161,7 +161,7 @@ public class ArtistaDAO {
 
 			while (resultado.next()) {
 				Artista artista = new Artista();
-				artista.setCodArtista(resultado.getInt("codArtista"));
+				artista.setCodArtista(resultado.getLong("codArtista"));
 				artista.setCache(resultado.getBigDecimal("cache"));
 				artista.setNacionalidade(resultado.getString("nacionalidade"));
 				artista.setNascimento(resultado.getDate("nascimento"));

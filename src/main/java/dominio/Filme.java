@@ -10,7 +10,7 @@ public class Filme implements Serializable {
   private static final long serialVersionUID = 1L;	
   
   
-  private Integer codFilme;
+  private Long codFilme;
   private String titulo;
   private Integer duracao;
   private Integer ano;
@@ -22,7 +22,7 @@ public class Filme implements Serializable {
 	  
   }
 
-public Filme(Integer codFilme, String titulo, Integer duracao, Integer ano) {
+public Filme(Long codFilme, String titulo, Integer duracao, Integer ano) {
 	super();
 	this.codFilme = codFilme;
 	this.titulo = titulo;
@@ -32,11 +32,11 @@ public Filme(Integer codFilme, String titulo, Integer duracao, Integer ano) {
 	  
 }
 
-public Integer getCodFilme() {
+public Long getCodFilme() {
 	return codFilme;
 }
 
-public void setCodFilme(Integer codFilme) {
+public void setCodFilme(Long codFilme) {
 	this.codFilme = codFilme;
 }
 

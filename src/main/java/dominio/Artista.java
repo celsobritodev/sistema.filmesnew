@@ -10,7 +10,7 @@ import java.util.Objects;
 public class Artista implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private Integer codArtista;
+	private Long codArtista;
 	private String nome;
 	private String nacionalidade;
 	private BigDecimal cache;
@@ -23,7 +23,7 @@ public class Artista implements Serializable {
 		participacoes = new ArrayList<>();
 	}
 
-	public Artista(Integer codArtista, String nome, String nacionalidade, BigDecimal cache, Date nascimento) {
+	public Artista(Long codArtista, String nome, String nacionalidade, BigDecimal cache, Date nascimento) {
 		super();
 		this.codArtista = codArtista;
 		this.nome = nome;
@@ -33,11 +33,11 @@ public class Artista implements Serializable {
 		participacoes = new ArrayList<>();
 	}
 
-	public Integer getCodArtista() {
+	public Long getCodArtista() {
 		return codArtista;
 	}
 
-	public void setCodArtista(Integer codArtista) {
+	public void setCodArtista(Long codArtista) {
 		this.codArtista = codArtista;
 	}
 
