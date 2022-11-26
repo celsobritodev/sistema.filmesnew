@@ -14,12 +14,12 @@ public class TesteParticipacaoDAO {
 
 public static void main(String[] args) {
 		
-		//testCadastrar();
+		testCadastrar();
 		//testAlterar();
 		//testExcluir();
 		//testBuscarTodos();
 	     //testBuscarPorCod();
-	    testBuscarPorPersonagem();
+	    //testBuscarPorPersonagem();
 
 	}
 
@@ -37,16 +37,16 @@ public static void main(String[] args) {
 					sdf.parse("11/01/1983"));
 			Artista a3 = new Artista(3L, "Kate Winslet", "UK", new BigDecimal("8000000.00"), sdf.parse("04/09/1999"));
 
-			Participacao p1 = new Participacao(1L, "Jack Dawson", new BigDecimal("2000000.00"), f2, a1);
-			Participacao p2 = new Participacao(2L, "Howard Hughes", new BigDecimal("1000000.00"), f1, a1);
-			Participacao p3 = new Participacao(3L, "Rose Bukater", new BigDecimal("1000000.00"), f2, a3);
-			Participacao p4 = new Participacao(4L, "Katharine Heburn", new BigDecimal("500000.00"), f1, a2);
+			Participacao p1 = new Participacao(null, "Jack Dawson", new BigDecimal("2000000.00"), f2, a1);
+			Participacao p2 = new Participacao(null, "Howard Hughes", new BigDecimal("1000000.00"), f1, a1);
+			Participacao p3 = new Participacao(null, "Rose Bukater", new BigDecimal("1000000.00"), f2, a3);
+			Participacao p4 = new Participacao(null, "Katharine Heburn", new BigDecimal("500000.00"), f1, a2);
 
 			ParticipacaoDAO participacaoDAO = new ParticipacaoDAO();
-			participacaoDAO.cadastrar(p1);
-			participacaoDAO.cadastrar(p2);
-			participacaoDAO.cadastrar(p3);
-			participacaoDAO.cadastrar(p4);
+			participacaoDAO.salvar(p1);
+			participacaoDAO.salvar(p2);
+			participacaoDAO.salvar(p3);
+			participacaoDAO.salvar(p4);
 			
 		} catch (ParseException e) {
 		

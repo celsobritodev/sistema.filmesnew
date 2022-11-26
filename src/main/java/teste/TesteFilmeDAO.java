@@ -21,7 +21,7 @@ public static void main(String[] args) {
 	public static void testCadastrar() {
 
 		Filme f1 = new Filme(null, "O aviador", 170, 2005);
-		Filme f2 = new Filme(null, "Titanicr", 195, 1997);
+		Filme f2 = new Filme(null, "Titanic", 195, 1997);
 		
 		FilmeDAO filmeDAO = new FilmeDAO();
 		filmeDAO.cadastrar(f1);
@@ -39,7 +39,7 @@ public static void main(String[] args) {
 	
 	public static void testExcluir() {
 		
-		Filme f2 = new Filme(3L, "Titanicr", 195, 1997);
+		Filme f2 = new Filme(3L, "Titanic", 195, 1997);
 	
 		FilmeDAO filmeDAO = new FilmeDAO();
 		filmeDAO.excluir(f2);

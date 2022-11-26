@@ -35,30 +35,35 @@ public class Instanciacao extends HttpServlet {
 			Artista a2 = new Artista(null, "Cate Blanchett", "Australia", new BigDecimal("5000000.00"),
 					sdf.parse("11/01/1983"));
 			Artista a3 = new Artista(null, "Kate Winslet", "UK", new BigDecimal("8000000.00"), sdf.parse("04/09/1999"));
-
-			Participacao p1 = new Participacao(null, "Jack Dawson", new BigDecimal("2000000.00"), f2, a1);
-			Participacao p2 = new Participacao(null, "Howard Hughes", new BigDecimal("1000000.00"), f1, a1);
-			Participacao p3 = new Participacao(null, "Rose Bukater", new BigDecimal("1000000.00"), f2, a3);
-			Participacao p4 = new Participacao(null, "Katharine Heburn", new BigDecimal("500000.00"), f1, a2);
-
-			
+		
 			// gravando filmes
 			FilmeDAO filmeDAO = new FilmeDAO();
-			filmeDAO.cadastrar(f1);
-			filmeDAO.cadastrar(f2);
+			filmeDAO.salvar(f1);
+			filmeDAO.salvar(f2);
 			
 			// gravando artista
 			ArtistaDAO artistaDAO = new ArtistaDAO();
-			artistaDAO.cadastrar(a1);
-			artistaDAO.cadastrar(a2);
-			artistaDAO.cadastrar(a3);
-
+			artistaDAO.salvar(a1);
+			artistaDAO.salvar(a2);
+			artistaDAO.salvar(a3);
+			
+			// colocando codigos que serao utilizados pelas participacoes
+			f1.setCodFilme(1L);
+			f2.setCodFilme(2L);
+			a1.setCodArtista(1L);
+			a2.setCodArtista(2L);
+			a3.setCodArtista(3L);
+			
 			// gravando participacoes
+        	Participacao p1 = new Participacao(null, "Jack Dawson", new BigDecimal("2000000.00"), f2, a1);
+			Participacao p2 = new Participacao(null, "Howard Hughes", new BigDecimal("1000000.00"), f1, a1);
+			Participacao p3 = new Participacao(null, "Rose Bukater", new BigDecimal("1000000.00"), f2, a3);
+			Participacao p4 = new Participacao(null, "Katharine Heburn", new BigDecimal("500000.00"), f1, a2);
 			ParticipacaoDAO participacaoDAO = new ParticipacaoDAO();
-			participacaoDAO.cadastrar(p1);
-			participacaoDAO.cadastrar(p2);
-			participacaoDAO.cadastrar(p3);
-			participacaoDAO.cadastrar(p4);
+			participacaoDAO.salvar(p1);
+			participacaoDAO.salvar(p2);
+			participacaoDAO.salvar(p3);
+			participacaoDAO.salvar(p4);
 			
 			response.getWriter().append("Cache total do filme "+f1+"\n");
 			response.getWriter().append( f1.cacheTotal()+"\n");
