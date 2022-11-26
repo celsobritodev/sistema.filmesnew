@@ -17,7 +17,9 @@ public static void main(String[] args) {
 		//testAlterar();
 		//testExcluir();
 		//testBuscarTodos();
-	     testBuscarPorCod();
+	    // testBuscarPorCod();
+	    testBuscarPorNome();
+	     
 
 	}
 
@@ -101,5 +103,11 @@ public static void main(String[] args) {
 	public static void testBuscarPorCod() {
 	    ArtistaDAO artistaDAO = new ArtistaDAO();
 		System.out.println(artistaDAO.buscarPorCod(1L));
+	}
+	
+	
+	public static void testBuscarPorNome() {
+	    ArtistaDAO artistaDAO = new ArtistaDAO();
+		System.out.println(artistaDAO.buscarPorNome("caprio"));
 	}
 }

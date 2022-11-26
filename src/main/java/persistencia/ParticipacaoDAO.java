@@ -22,12 +22,12 @@ public class ParticipacaoDAO {
 			preparador = con.prepareStatement(sql);
 			preparador.setLong(1, participacao.getArtista().getCodArtista());
 			preparador.setLong(2, participacao.getFilme().getCodFilme());
-			preparador.setBigDecimal(2, participacao.getDesconto());
+			preparador.setBigDecimal(3, participacao.getDesconto());
 			preparador.setString(4, participacao.getPersonagem());
 	
 			preparador.execute();
 			preparador.close();
-			System.out.println("Cadastrado com sucesso");
+			System.out.println("Cadastrada com sucesso");
 		} catch (SQLException e) {
 
 			e.printStackTrace();
@@ -62,7 +62,7 @@ public class ParticipacaoDAO {
 	        preparador.setLong(5, participacao.getCodParticipacao());
 			preparador.execute();
 			preparador.close();
-			System.out.println("Alterado com sucesso");
+			System.out.println("Alterada com sucesso");
 		} catch (SQLException e) {
 
 			e.printStackTrace();
@@ -80,7 +80,7 @@ public class ParticipacaoDAO {
 			preparador.setLong(1, participacao.getCodParticipacao());
 			preparador.execute();
 			preparador.close();
-			System.out.println("Excluido com sucesso");
+			System.out.println("Excluida com sucesso");
 		} catch (SQLException e) {
 
 			e.printStackTrace();
@@ -116,7 +116,7 @@ public class ParticipacaoDAO {
 				participacaos.add(participacao);
 			}
 			preparador.close();
-			System.out.println("Listado com sucesso");
+			System.out.println("Listada com sucesso");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -159,7 +159,7 @@ public class ParticipacaoDAO {
 	}
 	
 	
-	public List<Participacao> buscarPorPersonagm(String personagem) {
+	public List<Participacao> buscarPorPersonagem(String personagem) {
 		String sql = "SELECT * FROM TB_PARTICIPACAO WHERE personagem LIKE ?";
 		PreparedStatement preparador;
 		List<Participacao> participacaos = new ArrayList<Participacao>();

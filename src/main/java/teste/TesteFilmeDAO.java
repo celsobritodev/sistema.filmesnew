@@ -13,7 +13,8 @@ public static void main(String[] args) {
 		//testAlterar();
 		//testExcluir();
 		//testBuscarTodos();
-	     testBuscarPorCod();
+	     //testBuscarPorCod();
+	    testBuscarPorTitulo();
 
 	}
 
@@ -59,9 +60,14 @@ public static void main(String[] args) {
 	}
 	
 
-
 	public static void testBuscarPorCod() {
 	    FilmeDAO filmeDAO = new FilmeDAO();
 		System.out.println(filmeDAO.buscarPorCod(1L));
+	}
+
+	
+	public static void testBuscarPorTitulo() {
+	    FilmeDAO filmeDAO = new FilmeDAO();
+		System.out.println(filmeDAO.buscarPorTitulo("aviador"));
 	}
 }

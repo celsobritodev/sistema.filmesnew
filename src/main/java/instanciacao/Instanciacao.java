@@ -12,6 +12,9 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import persistencia.ArtistaDAO;
+import persistencia.FilmeDAO;
+import persistencia.ParticipacaoDAO;
 
 /**
  * Servlet implementation class Instanciacao
@@ -25,7 +28,7 @@ public class Instanciacao extends HttpServlet {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 		Filme f1 = new Filme(null, "O aviador", 170, 2005);
-		Filme f2 = new Filme(null, "Titanicr", 195, 1997);
+		Filme f2 = new Filme(null, "Titanic", 195, 1997);
 		try {
 			Artista a1 = new Artista(null, "Leonardo Di Caprio", "EUA", new BigDecimal("10000000.00"),
 					sdf.parse("11/11/1974"));
@@ -39,6 +42,24 @@ public class Instanciacao extends HttpServlet {
 			Participacao p4 = new Participacao(null, "Katharine Heburn", new BigDecimal("500000.00"), f1, a2);
 
 			
+			// gravando filmes
+			FilmeDAO filmeDAO = new FilmeDAO();
+			filmeDAO.cadastrar(f1);
+			filmeDAO.cadastrar(f2);
+			
+			// gravando artista
+			ArtistaDAO artistaDAO = new ArtistaDAO();
+			artistaDAO.cadastrar(a1);
+			artistaDAO.cadastrar(a2);
+			artistaDAO.cadastrar(a3);
+
+			// gravando participacoes
+			ParticipacaoDAO participacaoDAO = new ParticipacaoDAO();
+			participacaoDAO.cadastrar(p1);
+			participacaoDAO.cadastrar(p2);
+			participacaoDAO.cadastrar(p3);
+			participacaoDAO.cadastrar(p4);
+			
 			response.getWriter().append("Cache total do filme "+f1+"\n");
 			response.getWriter().append( f1.cacheTotal()+"\n");
 			
@@ -47,7 +68,7 @@ public class Instanciacao extends HttpServlet {
 		
 		} catch (ParseException e) {
 		
-			response.getWriter().append("Erro ao instanciar data. Insância não criada!!");
+			response.getWriter().append("Erro ao instanciar data. Instância não criada!!");
 		}
 	}
 
