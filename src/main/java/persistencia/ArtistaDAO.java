@@ -208,6 +208,36 @@ public class ArtistaDAO {
 		return artista;
 
 	}
+	
+	
+	
+	public Artista buscarNomeExatoCodDiferente(Integer codArtista,String nome) {
+		String sql = "SELECT * FROM TB_ARTISTA WHERE codArtista<>? and nome =?";
+		PreparedStatement preparador;
+		Artista artista = null;
+		try {
+			preparador = con.prepareStatement(sql);
+			preparador.setLong(1,codArtista);
+			preparador.setString(2, nome);
+			ResultSet resultado = preparador.executeQuery();
+
+			if (resultado.next()) {
+				artista = new Artista();
+				artista.setCodArtista(resultado.getLong("codArtista"));
+				artista.setCache(resultado.getBigDecimal("cache"));
+				artista.setNacionalidade(resultado.getString("nacionalidade"));
+				artista.setNascimento(resultado.getDate("nascimento"));
+				artista.setNome(resultado.getString("nome"));
+			}
+
+			preparador.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return artista;
+
+	}
 
 	public List<Artista> buscarPorNome(String nome) {
 		String sql = "SELECT * FROM TB_ARTISTA WHERE nome LIKE ?";
