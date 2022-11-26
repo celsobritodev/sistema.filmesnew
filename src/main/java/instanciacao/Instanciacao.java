@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import dominio.Artista;
 import dominio.Filme;
 import dominio.Participacao;
+import erro.Excessao;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -74,6 +75,8 @@ public class Instanciacao extends HttpServlet {
 		} catch (ParseException e) {
 		
 			response.getWriter().append("Erro ao instanciar data. Instância não criada!!");
+		} catch (Excessao e) {
+			
 		}
 	}
 
