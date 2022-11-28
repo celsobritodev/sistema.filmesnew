@@ -79,11 +79,9 @@
 	<!-- Begin page content -->
 	<main class="flex-shrink-0">
 		<div class="container">
-			<h1 class="mt-5">Página inicial</h1>
-			<p class="lead">Sistema didático Java para web. </p>
-			<p>Educandoweb - <a href="https://youtube.com/educandoweb">https://youtube.com/educandoweb</a> </p>
-		
-				
+			<h1 class="mt-5">Título da página</h1>
+			<p class="lead">Texto grande</p>
+			<p>Texto menor </p>
 		</div>
 	</main>
 
