@@ -39,7 +39,12 @@ public class ArtistaDAO {
 	}
 
 	public void salvar(Artista artista) throws Excessao {
-		if (artista.getCodArtista() != null && artista.getCodArtista() != 0) {
+		Long codArtista = artista.getCodArtista();
+		if (codArtista != null && codArtista != 0) {
+			Artista artistaExiste = buscarNomeExatoCodDiferente(codArtista,artista.getNome());
+			if (artistaExiste != null) {
+					throw new Excessao("Ja existe um artista com este nome!", 1);
+				}
 			this.alterar(artista);
 		} else {
 			Artista artistaExiste = buscarNomeExato(artista.getNome());
@@ -48,7 +53,12 @@ public class ArtistaDAO {
 			}
 			this.cadastrar(artista);
 		}
+		
+		
 	}
+	
+	
+	
 
 	public void alterar(Artista artista) {
 
@@ -211,7 +221,7 @@ public class ArtistaDAO {
 	
 	
 	
-	public Artista buscarNomeExatoCodDiferente(Integer codArtista,String nome) {
+	public Artista buscarNomeExatoCodDiferente(Long codArtista,String nome) {
 		String sql = "SELECT * FROM TB_ARTISTA WHERE codArtista<>? and nome =?";
 		PreparedStatement preparador;
 		Artista artista = null;

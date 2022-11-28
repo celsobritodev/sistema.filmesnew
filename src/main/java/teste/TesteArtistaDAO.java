@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import dominio.Artista;
+import erro.Excessao;
 import persistencia.ArtistaDAO;
 
 public class TesteArtistaDAO {
@@ -50,7 +51,6 @@ public static void main(String[] args) {
 	
 	public static void testAlterar() {
 		
-		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 		try {
@@ -72,7 +72,12 @@ public static void main(String[] args) {
 		artista.setCodArtista(4L);
 	
 		ArtistaDAO artistaDAO = new ArtistaDAO();
-		artistaDAO.excluir(artista);
+		try {
+			artistaDAO.excluir(artista);
+		} catch (Excessao e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	

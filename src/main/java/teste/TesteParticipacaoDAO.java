@@ -8,6 +8,7 @@ import java.util.List;
 import dominio.Artista;
 import dominio.Filme;
 import dominio.Participacao;
+import erro.Excessao;
 import persistencia.ParticipacaoDAO;
 
 public class TesteParticipacaoDAO {
@@ -52,6 +53,9 @@ public static void main(String[] args) {
 		
 			System.out.println("Erro ao criar objetos para cadastrar");
 			
+		} catch (Excessao e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		

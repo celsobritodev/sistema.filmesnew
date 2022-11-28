@@ -7,7 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import dominio.Artista;
+import dominio.Filme;
 import dominio.Participacao;
+import erro.Excessao;
 
 public class ParticipacaoDAO {
 	
@@ -38,14 +41,29 @@ public class ParticipacaoDAO {
 	
 	
 	
-	public void salvar(Participacao participacao) {
-		if(participacao.getCodParticipacao()!=null && participacao.getCodParticipacao()!=0) {
+	public void salvar(Participacao participacao) throws Excessao {
+		Long codParticipacao = participacao.getCodParticipacao();
+		if(codParticipacao!=null && codParticipacao!=0) {
+			Participacao participacaoExiste = buscarPartipacaoExataCodDiferente(codParticipacao,
+					participacao.getPersonagem(),
+                    participacao.getArtista(),
+                    participacao.getFilme());
+            if (participacaoExiste !=null) {
+            	throw new Excessao("Ja existe uma participacao com estes dados!", 1);
+            }
 			this.alterar(participacao);
 		} else {
+			Participacao participacaoExiste = buscarPartipacaoExata(participacao.getPersonagem(),
+                    participacao.getArtista(),
+                    participacao.getFilme());
+            if (participacaoExiste !=null) {
+            	throw new Excessao("Ja existe uma participacao com estes dados!", 1);
+            }
 			this.cadastrar(participacao);
 		}
 	}
 	
+
 	
 
 	public void alterar(Participacao participacao) {
@@ -196,7 +214,78 @@ public class ParticipacaoDAO {
 	}
 	
 	
-	
+
+	public Participacao buscarPartipacaoExata(String personagem, Artista artista,Filme filme) {
+		String sql = "SELECT * FROM TB_PARTICIPACAO WHERE personagem =? AND codArtista=? AND codFilme=?";
+		PreparedStatement preparador;
+		Participacao participacao = null;
+		try {
+			preparador = con.prepareStatement(sql);
+			preparador.setString(1, personagem);
+			preparador.setLong(2, artista.getCodArtista());
+			preparador.setLong(3,filme.getCodFilme());
+			ResultSet resultado = preparador.executeQuery();
+
+			if (resultado.next()) {
+				participacao = new Participacao();
+				participacao.setCodParticipacao(resultado.getLong("codParticipacao"));
+				
+				long codArtista = resultado.getLong("codArtista");
+				ArtistaDAO artistaDAO = new ArtistaDAO();
+				participacao.setArtista((artistaDAO.buscarPorCod(codArtista)));
+				
+				long codFilme = resultado.getLong("codFilme");
+				FilmeDAO filmeDAO = new FilmeDAO();
+				participacao.setFilme(filmeDAO.buscarPorCod(codFilme));			
+				
+				participacao.setDesconto(resultado.getBigDecimal("desconto"));
+				participacao.setPersonagem(resultado.getString("personagem"));
+			}
+
+			preparador.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return participacao;
+	}		
+		
+		public Participacao buscarPartipacaoExataCodDiferente(Long codParticipacao, String personagem, Artista artista,Filme filme) {
+			String sql = "SELECT * FROM TB_PARTICIPACAO WHERE codParticipacao<>? AND personagem =? AND codArtista=? AND codFilme=?";
+			PreparedStatement preparador;
+			Participacao participacao = null;
+			try {
+				preparador = con.prepareStatement(sql);
+				preparador.setLong(1,codParticipacao);
+				preparador.setString(2, personagem);
+				preparador.setLong(3, artista.getCodArtista());
+				preparador.setLong(4,filme.getCodFilme());
+				ResultSet resultado = preparador.executeQuery();
+
+				if (resultado.next()) {
+					participacao = new Participacao();
+					participacao.setCodParticipacao(resultado.getLong("codParticipacao"));
+					
+					long codArtista = resultado.getLong("codArtista");
+					ArtistaDAO artistaDAO = new ArtistaDAO();
+					participacao.setArtista((artistaDAO.buscarPorCod(codArtista)));
+					
+					long codFilme = resultado.getLong("codFilme");
+					FilmeDAO filmeDAO = new FilmeDAO();
+					participacao.setFilme(filmeDAO.buscarPorCod(codFilme));			
+					
+					participacao.setDesconto(resultado.getBigDecimal("desconto"));
+					participacao.setPersonagem(resultado.getString("personagem"));
+				}
+
+				preparador.close();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return participacao;
+
+	}
 	
 	
 	
