@@ -29,4 +29,24 @@
     <servlet-name>Instanciacao</servlet-name>
     <url-pattern>/Instanciacao</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ArtistaListar</display-name>
+    <servlet-name>ArtistaListar</servlet-name>
+    <servlet-class>web.ArtistaListar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ArtistaListar</servlet-name>
+    <url-pattern>/artista/listar</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>ArtistaFiltrar</display-name>
+    <servlet-name>ArtistaFiltrar</servlet-name>
+    <servlet-class>web.ArtistaFiltrar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ArtistaFiltrar</servlet-name>
+    <url-pattern>/artista/filtrar</url-pattern>
+  </servlet-mapping>
 </web-app>
