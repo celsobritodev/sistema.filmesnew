@@ -16,30 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tb_participacao`
+-- Table structure for table `tb_filme`
 --
 
-DROP TABLE IF EXISTS `tb_participacao`;
+DROP TABLE IF EXISTS `tb_filme`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_participacao` (
-  `codParticipacao` int NOT NULL AUTO_INCREMENT,
-  `codArtista` int NOT NULL,
-  `codFilme` int NOT NULL,
-  `desconto` double NOT NULL,
-  `personagem` varchar(45) NOT NULL,
-  PRIMARY KEY (`codParticipacao`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `tb_filme` (
+  `codfilme` int NOT NULL AUTO_INCREMENT,
+  `ano` int NOT NULL,
+  `duracao` int NOT NULL,
+  `titulo` varchar(45) NOT NULL,
+  PRIMARY KEY (`codfilme`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_participacao`
+-- Dumping data for table `tb_filme`
 --
 
-LOCK TABLES `tb_participacao` WRITE;
-/*!40000 ALTER TABLE `tb_participacao` DISABLE KEYS */;
-INSERT INTO `tb_participacao` VALUES (10,1,2,2000000,'Jack Dawson'),(11,1,1,1000000,'Howard Hughes'),(12,3,2,1000000,'Rose Bukater'),(13,2,1,500000,'Katharine Heburn');
-/*!40000 ALTER TABLE `tb_participacao` ENABLE KEYS */;
+LOCK TABLES `tb_filme` WRITE;
+/*!40000 ALTER TABLE `tb_filme` DISABLE KEYS */;
+INSERT INTO `tb_filme` VALUES (11,2005,170,'O aviador'),(12,1997,195,'Titanic');
+/*!40000 ALTER TABLE `tb_filme` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-26 13:40:42
+-- Dump completed on 2022-11-28  8:43:28

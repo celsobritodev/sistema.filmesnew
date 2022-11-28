@@ -16,30 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tb_artista`
+-- Table structure for table `tb_participacao`
 --
 
-DROP TABLE IF EXISTS `tb_artista`;
+DROP TABLE IF EXISTS `tb_participacao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_artista` (
-  `codArtista` int NOT NULL AUTO_INCREMENT,
-  `cache` double NOT NULL,
-  `nacionalidade` varchar(45) NOT NULL,
-  `nascimento` datetime NOT NULL,
-  `nome` varchar(45) NOT NULL,
-  PRIMARY KEY (`codArtista`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `tb_participacao` (
+  `codParticipacao` int NOT NULL AUTO_INCREMENT,
+  `codArtista` int NOT NULL,
+  `codFilme` int NOT NULL,
+  `desconto` double NOT NULL,
+  `personagem` varchar(45) NOT NULL,
+  PRIMARY KEY (`codParticipacao`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_artista`
+-- Dumping data for table `tb_participacao`
 --
 
-LOCK TABLES `tb_artista` WRITE;
-/*!40000 ALTER TABLE `tb_artista` DISABLE KEYS */;
-INSERT INTO `tb_artista` VALUES (19,10000000,'EUA','1974-11-11 00:00:00','Leonardo Di Caprio'),(20,5000000,'Australia','1983-01-11 00:00:00','Cate Blanchett'),(21,8000000,'UK','1999-09-04 00:00:00','Kate Winslet');
-/*!40000 ALTER TABLE `tb_artista` ENABLE KEYS */;
+LOCK TABLES `tb_participacao` WRITE;
+/*!40000 ALTER TABLE `tb_participacao` DISABLE KEYS */;
+INSERT INTO `tb_participacao` VALUES (10,19,12,2000000,'Jack Dawson'),(11,19,11,1000000,'Howard Hughes'),(12,21,12,1000000,'Rose Bukater'),(13,20,11,500000,'Katharine Heburn'),(14,19,12,0,'Joaozinho');
+/*!40000 ALTER TABLE `tb_participacao` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-26 13:40:41
+-- Dump completed on 2022-11-28  8:43:28

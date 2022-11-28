@@ -32,9 +32,9 @@ public class ServletTeste extends HttpServlet {
 		
 
 		
-		ArtistaDAO artistaDAO = new ArtistaDAO();
+	//	ArtistaDAO artistaDAO = new ArtistaDAO();
 		FilmeDAO filmeDAO = new FilmeDAO();
-		ParticipacaoDAO participacaoDAO = new ParticipacaoDAO();
+	//	ParticipacaoDAO participacaoDAO = new ParticipacaoDAO();
 /*		
  * 
  * 

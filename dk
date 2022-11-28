@@ -1,0 +1,53 @@
+[33mcommit a5071ca847e9fb8866177ac597e5a509d8fe326d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: celsobritodev <celsinhobrito@gmail.com>
+Date:   Sun Nov 27 22:48:37 2022 -0300
+
+    implementando casos de uso
+
+[33mcommit eeb5c9d7b37cd191a69792dd0b49ae5a0bf36ddd[m
+Author: celsobritodev <celsinhobrito@gmail.com>
+Date:   Sun Nov 27 21:36:44 2022 -0300
+
+    aperfeicoando rotinas de crud
+
+[33mcommit 025f534ea968d8eacbbb3017f282f1ce4626e80d[m
+Author: celsobritodev <celsinhobrito@gmail.com>
+Date:   Sat Nov 26 14:18:42 2022 -0300
+
+    acrescentando rotinas de gravacao
+
+[33mcommit 3038a8841bfebf4bb2231b5e7567bc3ff2c032ad[m
+Author: celsobritodev <celsinhobrito@gmail.com>
+Date:   Sat Nov 26 13:42:09 2022 -0300
+
+    adicionando tabela atualizada
+
+[33mcommit 19e10e549744c7a2867df47cb8545e827c13a939[m
+Author: celsobritodev <celsinhobrito@gmail.com>
+Date:   Sat Nov 26 13:39:35 2022 -0300
+
+    alterando o processo de gravacao
+
+[33mcommit fa0f97e2d59f6922d12cf7004acd38f4c4c93939[m
+Author: celsobritodev <celsinhobrito@gmail.com>
+Date:   Sat Nov 26 11:55:41 2022 -0300
+
+    mais testando classes DAO
+
+[33mcommit 68eb47c812268f5f9ec3ef280dc5d0b9e06646e5[m
+Author: celsobritodev <celsinhobrito@gmail.com>
+Date:   Sat Nov 26 09:58:41 2022 -0300
+
+    rotinas de persistencia atualizadas
+
+[33mcommit 33eb2b8bb2966f5edeca69502f57fe434dcb4c97[m
+Author: celsobritodev <celsinhobrito@gmail.com>
+Date:   Fri Nov 25 14:03:45 2022 -0300
+
+    implementando classes DAO
+
+[33mcommit 1ef7f9e3de7381a9e5a5d9d208f0ec90cdbda046[m
+Author: celsobritodev <celsinhobrito@gmail.com>
+Date:   Fri Nov 25 10:22:18 2022 -0300
+
+    primeiro commit
