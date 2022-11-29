@@ -49,4 +49,30 @@
     <servlet-name>ArtistaFiltrar</servlet-name>
     <url-pattern>/artista/filtrar</url-pattern>
   </servlet-mapping>
+  
+ <servlet>
+    <description></description>
+    <display-name>ArtistaNovo</display-name>
+    <servlet-name>ArtistaNovo</servlet-name>
+    <servlet-class>web.ArtistaNovo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ArtistaNovo</servlet-name>
+    <url-pattern>/artista/novo</url-pattern>
+  </servlet-mapping>
+  
+  
+   <servlet>
+    <description></description>
+    <display-name>ArtistaInserir</display-name>
+    <servlet-name>ArtistaInserir</servlet-name>
+    <servlet-class>web.ArtistaInserir</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ArtistaInserir</servlet-name>
+    <url-pattern>/artista/inserir</url-pattern>
+  </servlet-mapping>   
+  
+  
+  
 </web-app>

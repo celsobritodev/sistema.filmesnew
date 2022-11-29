@@ -1,6 +1,7 @@
-	<footer class="footer">
-      <div class="container">
-       <span class="text-muted">Educandoweb - <a href="https://youtube.com/educandoweb">https://youtube.com/educandoweb</a> </span>
-      </div>
-    </footer>
-
+<footer class="footer">
+	<div class="container">
+		<p class="text-muted">
+			Educandoweb - <a href="https://youtube.com/educandoweb">youtube.com/educandoweb</a>
+		</p>
+	</div>
+</footer>

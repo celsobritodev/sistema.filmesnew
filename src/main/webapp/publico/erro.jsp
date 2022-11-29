@@ -17,10 +17,9 @@
     <!-- Begin page content -->
     <div class="container">
       <div class="page-header">
-        <h1>Título da página</h1>
+        <h1>Erro!</h1>
       </div>
-      <p class="lead">Texto grande</p>
-      <p>Texto menor</p>
+         <p class="lead">${msg}</p>
     </div>
 
 	<jsp:include page="/resources/templates/rodape.jsp"></jsp:include>
