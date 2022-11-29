@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!doctype html>
 <html>
 
 <head>
-		<meta charset="ISO-8859-1">
+		<meta charset="UTF-8">
 		<title>Sistema de filmes</title>
 		<link href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css" 	rel="stylesheet">
 		<link href="<%=request.getContextPath()%>/resources/css/sticky-footer-navbar.css" rel="stylesheet">
@@ -44,12 +44,12 @@
 <table class="table">
 			<thead>
 				<tr>
-					<th>Código</th>
+					<th>CÃ³digo</th>
 					<th>Nome</th>
 					<th>Nacionalidade</th>
 					<th>Cache</th>
 					<th>Nascimento</th>
-					<th>Ação</th>
+					<th>AÃ§Ã£o</th>
 				</tr>
 			</thead>
 
