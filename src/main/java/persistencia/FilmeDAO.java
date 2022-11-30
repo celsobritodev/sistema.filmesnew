@@ -180,7 +180,7 @@ public class FilmeDAO {
 		
 		
 		public List<Filme> buscarPorNomeAno(String titulo, int anoMin,int anoMax) {
-			String sql = "SELECT * FROM TB_FILME WHERE titulo LIKE ? AND ano>=? AND ano<=?";
+			String sql = "SELECT * FROM TB_FILME WHERE titulo LIKE ? AND ano>=? AND ano<=? ORDERY BY titulo";
 			PreparedStatement preparador;
 			List<Filme> filmes = new ArrayList<Filme>();
 			try {

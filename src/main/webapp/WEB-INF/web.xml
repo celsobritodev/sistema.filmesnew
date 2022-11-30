@@ -116,6 +116,29 @@
     <servlet-name>ArtistaExcluir</servlet-name>
     <url-pattern>/artista/excluir</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>FilmePesquisar</display-name>
+    <servlet-name>FilmePesquisar</servlet-name>
+    <servlet-class>web.FilmePesquisar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FilmePesquisar</servlet-name>
+    <url-pattern>/filme/pesquisar</url-pattern>
+  </servlet-mapping>
+  
+  
+   <servlet>
+    <description></description>
+    <display-name>FilmeResultado</display-name>
+    <servlet-name>FilmeResultado</servlet-name>
+    <servlet-class>web.FilmeResultado</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FilmeResultado</servlet-name>
+    <url-pattern>/filme/resultado</url-pattern>
+  </servlet-mapping>
     
   
   
