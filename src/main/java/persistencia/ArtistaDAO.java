@@ -9,11 +9,36 @@ import java.util.List;
 
 import dominio.Artista;
 import erro.Excessao;
+import servico.ValidacaoException;
 
 public class ArtistaDAO {
 
 	private Connection con = Conexao.getConnection();
 
+	
+	public void validar(Artista artista) throws ValidacaoException {
+		
+		List<String> erros = new ArrayList<>();
+		if (artista.getNome()==null) {
+			erros.add("Favor preencher o nome");
+		}
+		if (artista.getNacionalidade()==null) {
+			erros.add("Favor o campo nacionalidade");
+		}
+		if (artista.getCache()==null) {
+			erros.add("Favor preencher um valor váido para o cache");
+		}
+		if (artista.getNascimento()==null) {
+			erros.add("Favor preencher um valor válido para a data de nascimento");
+		}
+		if (!erros.isEmpty()) {
+			throw new ValidacaoException("Erro de validação",erros);
+		}
+		
+	}
+	
+	
+	
 	public void cadastrar(Artista artista) {
 
 		String sql = "INSERT INTO TB_ARTISTA (cache,nacionalidade,nascimento,nome) VALUES (?,?,?,?)";

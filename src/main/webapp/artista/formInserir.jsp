@@ -41,7 +41,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="nome">Nome:</label>
 				<div class="col-sm-5">
-					<input type="text" name="nome" id="nome" value="${item.nome}"
+					<input type="text" name="nome" id="nome" value="${artista.nome}"
 						required="required" class="form-control" />
 				</div>
 			</div>
@@ -49,14 +49,14 @@
 				<label class="col-sm-2 control-label" for="nacionalidade">Nacionalidade:</label>
 				<div class="col-sm-5">
 					<input type="text" name="nacionalidade" id="nacionalidade"
-						value="${item.nacionalidade}" required="required"
+						value="${artista.nacionalidade}" required="required"
 						class="form-control" />
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="cache">Cache:</label>
 				<div class="col-sm-5">
-					<input type="text" name="cache" id="cache" value="${item.cache}"
+					<input type="text" name="cache" id="cache" value="${artista.cache}"
 						required="required" class="form-control" />
 				</div>
 			</div>
@@ -64,7 +64,7 @@
 				<label class="col-sm-2 control-label" for="nascimento">Nascimento:</label>
 				<div class="col-sm-5">
 					<input type="text" name="nascimento" id="nascimento"
-						value="<fmt:formatDate pattern="dd/MM/yyyy" value="${item.nascimento}"/>"
+						value="<fmt:formatDate pattern="dd/MM/yyyy" value="${artista.nascimento}"/>"
 						required="required" class="form-control" />
 				</div>
 			</div>
