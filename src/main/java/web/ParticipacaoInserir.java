@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import dominio.Artista;
+import dominio.Filme;
 import dominio.Participacao;
 import erro.Excessao;
 import jakarta.servlet.ServletException;
@@ -30,31 +31,31 @@ public class ParticipacaoInserir extends HttpServlet {
 			throws ServletException, IOException {
 
 		FilmeDAO filmeDAO = new FilmeDAO();
-		ParticipacaoDAO participacaoDAO = new Participacao();
+		ParticipacaoDAO participacaoDAO = new ParticipacaoDAO();
 		ArtistaDAO artistaDAO = new ArtistaDAO();
 		
 		Participacao participacao = Instanciar.participacao(request);
 		
 		try {
 			participacaoDAO.validar(participacao);
-			artistaDAO.salvar(artista);
-			List<Artista> artistas = artistaDAO.buscarTodosOrdenadosPorNome();
-			request.setAttribute("artistas", artistas);
+			participacaoDAO.salvar(participacao);
+			Filme filme = filmeDAO.buscarPorCod(participacao.getFilme().getCodFilme());
+			request.setAttribute("filme", filme);
 			request.getRequestDispatcher(DESTINO).forward(request, response);
 		} catch (Excessao e) {
             request.setAttribute("msg", e.getMessage());
             request.getRequestDispatcher(ERRO).forward(request, response);
 		} catch (ValidacaoException e) {
+			List<Artista> artistas = artistaDAO.buscarTodos();
 	        request.setAttribute("erros", e.getErros());
-	        request.setAttribute("artista", artista);
+	        request.setAttribute("participacao", participacao);
+	        request.setAttribute("artistas", artistas);
+	        request.setAttribute("artistaSelecionado",participacao.getArtista());
 	        request.getRequestDispatcher(FORM).forward(request, response);
 		}
 		
 		
-		
-		
-		request.setAttribute("artistas", artistas);
-		request.getRequestDispatcher(DESTINO).forward(request, response);
+	
 
 	}
 
