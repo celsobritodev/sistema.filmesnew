@@ -5,10 +5,70 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import dominio.Artista;
+import dominio.Filme;
+import dominio.Participacao;
 import jakarta.servlet.http.HttpServletRequest;
+import persistencia.ArtistaDAO;
+import persistencia.FilmeDAO;
+import persistencia.ParticipacaoDAO;
 
 public class Instanciar {
 
+	
+public static Participacao participacao(HttpServletRequest request) {
+		
+		ArtistaDAO artistaDAO = new ArtistaDAO();
+		FilmeDAO filmeDAO = new FilmeDAO();
+		
+		Participacao participacao = new Participacao();
+
+		String codParticipacao = request.getParameter("codParticipacao");
+		if (codParticipacao != null && !codParticipacao.isEmpty()) {
+			try {
+				participacao.setCodParticipacao(Long.parseLong(codParticipacao));
+			} catch (NumberFormatException e) {
+				System.out.println("Instanciacao: codParticipacao invalido");
+			}
+		}
+
+		String personagem = request.getParameter("personagem");
+		if (personagem != null && !personagem.isEmpty()) {
+			participacao.setPersonagem(personagem);
+		}
+
+		String desconto = request.getParameter("desconto");
+		if (desconto != null && !desconto.isEmpty()) {
+			try {
+				participacao.setDesconto(new BigDecimal(desconto));
+			} catch (NumberFormatException e) {
+				System.out.println("Instanciacao: desconto invalido");
+			}
+		}
+
+		String codArtista = request.getParameter("codArtista");
+		if (codArtista != null && !codArtista.isEmpty()) {
+			try {
+				Artista artista = artistaDAO.buscarPorCod(Long.parseLong(codArtista));
+				participacao.setArtista(artista);
+			} catch (NumberFormatException e) {
+				System.out.println("Instanciacao: codArtista invalido");
+			}
+		}
+
+		String codFilme = request.getParameter("codFilme");
+		if (codFilme != null && !codFilme.isEmpty()) {
+			try {
+				Filme filme = filmeDAO.buscarPorCod(Long.parseLong(codFilme));
+				participacao.setFilme(filme);
+			} catch (NumberFormatException e) {
+				System.out.println("Instanciacao: codArtista invalido");
+			}
+		}
+
+		return participacao;
+	}
+	
+	
 	public static Artista artista(HttpServletRequest request) {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");

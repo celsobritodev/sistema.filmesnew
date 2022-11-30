@@ -11,11 +11,38 @@ import dominio.Artista;
 import dominio.Filme;
 import dominio.Participacao;
 import erro.Excessao;
+import servico.ValidacaoException;
 
 public class ParticipacaoDAO {
 	
 	private Connection con = Conexao.getConnection();
 
+	
+
+	public void validar(Participacao participacao) throws ValidacaoException {
+		
+		List<String> erros = new ArrayList<>();
+		if (participacao.getPersonagem()==null) {
+			erros.add("Favor preencher o campo personagem");
+		}
+		if (participacao.getArtista()==null) {
+			erros.add("Favor informar um artista");
+		}
+     	if (participacao.getFilme()==null) {
+			erros.add("Favor informar um filme");			
+		}
+		if (participacao.getDesconto()==null) {
+			erros.add("Favor preencher um valor valido para o desconto");
+		}
+		
+		if (!erros.isEmpty()) {
+			throw new ValidacaoException("Erro de validação",erros);
+		}
+		
+	}
+	
+	
+	
 	public void cadastrar(Participacao participacao) {
 
 		String sql = "INSERT INTO TB_PARTICIPACAO (codArtista,codFilme,desconto,personagem) VALUES (?,?,?,?)";
