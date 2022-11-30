@@ -1,19 +1,24 @@
 package web;
 
 import java.io.IOException;
+import java.util.List;
+
+import dominio.Artista;
 import dominio.Filme;
+import dominio.Participacao;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import persistencia.ArtistaDAO;
 import persistencia.FilmeDAO;
 
-public class FilmeDetalhes extends HttpServlet {
+public class ParticipacaoNovo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private static String DESTINO = "/filme/detalhes.jsp";
+	private static String DESTINO = "/participacao/formInserir.jsp";
 
-	public FilmeDetalhes() {
+	public ParticipacaoNovo() {
 		super();
 	}
 
@@ -21,10 +26,18 @@ public class FilmeDetalhes extends HttpServlet {
 			throws ServletException, IOException {
 
 		FilmeDAO filmeDAO = new FilmeDAO();
-		Long codFilme = Long.parseLong(request.getParameter("cod"));
+		ArtistaDAO artistaDAO = new ArtistaDAO();
+		
+		Long codFilme = Long.parseLong(request.getParameter("codFilme"));
 		Filme filme = filmeDAO.buscarPorCod(codFilme);
 		
-		request.setAttribute("filme", filme);
+		Participacao participacao = new Participacao();
+		participacao.setFilme(filme);
+		
+		List<Artista> artistas = artistaDAO.buscarTodos();
+		
+		request.setAttribute("participacao", participacao);
+	    request.setAttribute("artistas", artistas);
 		request.getRequestDispatcher(DESTINO).forward(request, response);
 
 	}

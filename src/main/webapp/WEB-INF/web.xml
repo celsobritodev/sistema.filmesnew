@@ -139,6 +139,28 @@
     <servlet-name>FilmeResultado</servlet-name>
     <url-pattern>/filme/resultado</url-pattern>
   </servlet-mapping>
+  
+   <servlet>
+    <description></description>
+    <display-name>FilmeDetalhes</display-name>
+    <servlet-name>FilmeDetalhes</servlet-name>
+    <servlet-class>web.FilmeDetalhes</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FilmeDetalhes</servlet-name>
+    <url-pattern>/filme/detalhes</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>ParticipacaoFilmes</display-name>
+    <servlet-name>ParticipacaoFilmes</servlet-name>
+    <servlet-class>web.ParticipacaoFilmes</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ParticipacaoFilmes</servlet-name>
+    <url-pattern>/participacao/filmes</url-pattern>
+  </servlet-mapping>
     
   
   
