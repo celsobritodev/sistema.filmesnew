@@ -71,7 +71,52 @@
   <servlet-mapping>
     <servlet-name>ArtistaInserir</servlet-name>
     <url-pattern>/artista/inserir</url-pattern>
-  </servlet-mapping>   
+  </servlet-mapping> 
+  
+   <servlet>
+    <description></description>
+    <display-name>ArtistaEditar</display-name>
+    <servlet-name>ArtistaEditar</servlet-name>
+    <servlet-class>web.ArtistaEditar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ArtistaEditar</servlet-name>
+    <url-pattern>/artista/editar</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+    <description></description>
+    <display-name>ArtistaAtualizar</display-name>
+    <servlet-name>ArtistaAtualizar</servlet-name>
+    <servlet-class>web.ArtistaAtualizar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ArtistaAtualizar</servlet-name>
+    <url-pattern>/artista/atualizar</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <description></description>
+    <display-name>ArtistaRemover</display-name>
+    <servlet-name>ArtistaRemover</servlet-name>
+    <servlet-class>web.ArtistaRemover</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ArtistaRemover</servlet-name>
+    <url-pattern>/artista/remover</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>ArtistaExcluir</display-name>
+    <servlet-name>ArtistaExcluir</servlet-name>
+    <servlet-class>web.ArtistaExcluir</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ArtistaExcluir</servlet-name>
+    <url-pattern>/artista/excluir</url-pattern>
+  </servlet-mapping>
+    
   
   
   

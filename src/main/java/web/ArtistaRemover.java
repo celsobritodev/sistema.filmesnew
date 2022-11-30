@@ -6,24 +6,25 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import persistencia.ArtistaDAO;
 
-public class ArtistaNovo extends HttpServlet {
+public class ArtistaRemover extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private static String DESTINO = "/artista/formInserir.jsp";
+	private static String DESTINO = "/artista/confirmarExclusao.jsp";
 
-	public ArtistaNovo() {
+	public ArtistaRemover() {
 		super();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-
-		request.setAttribute("artista", new Artista());
+		ArtistaDAO artistaDAO = new ArtistaDAO();
+		Long codArtista = Long.parseLong(request.getParameter("cod"));
+		Artista artista = artistaDAO.buscarPorCod(codArtista);
+		request.setAttribute("artista", artista);
 		request.getRequestDispatcher(DESTINO).forward(request, response);
-
-		
 
 	}
 
