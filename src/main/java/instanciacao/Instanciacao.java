@@ -67,7 +67,7 @@ public class Instanciacao extends HttpServlet {
 			participacaoDAO.salvar(p4);
 			
 			response.getWriter().append("Cache total do filme "+f1+"\n");
-			response.getWriter().append( f1.cacheTotal()+"\n");
+			response.getWriter().append( f1.getCacheTotal()+"\n");
 			
 			
 			response.getWriter().append("Pronto!");
