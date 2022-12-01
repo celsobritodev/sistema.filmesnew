@@ -172,6 +172,18 @@
     <servlet-name>ParticipacaoNovo</servlet-name>
     <url-pattern>/participacao/novo</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>ParticipacaoInserir</display-name>
+    <servlet-name>ParticipacaoInserir</servlet-name>
+    <servlet-class>web.ParticipacaoInserir</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ParticipacaoInserir</servlet-name>
+    <url-pattern>/participacao/inserir</url-pattern>
+  </servlet-mapping>
+    
     
     
   

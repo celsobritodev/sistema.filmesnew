@@ -10,7 +10,6 @@ import dominio.Participacao;
 import jakarta.servlet.http.HttpServletRequest;
 import persistencia.ArtistaDAO;
 import persistencia.FilmeDAO;
-import persistencia.ParticipacaoDAO;
 
 public class Instanciar {
 

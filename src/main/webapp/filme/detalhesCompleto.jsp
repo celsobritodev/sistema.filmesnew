@@ -54,13 +54,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${item.participacoes}" var="x">
+				<c:forEach items="${filme.participacoes}" var="participacao">
 					<tr>
-						<td>${x.artista.nome}</td>
-						<td>${x.personagem}</td>
-						<td><fmt:setLocale value="pt_BR"/><fmt:formatNumber type="currency" value="${x.artista.cache}" /></td>
-						<td><fmt:setLocale value="pt_BR"/><fmt:formatNumber type="currency" value="${x.desconto}" /></td>
-						<td><fmt:setLocale value="pt_BR"/><fmt:formatNumber type="currency" value="${x.cachePago}" /></td>
+						<td>${participacao.artista.nome}</td>
+						<td>${participacao.personagem}</td>
+						<td><fmt:setLocale value="pt_BR"/><fmt:formatNumber type="currency" value="${participacao.artista.cache}" /></td>
+						<td><fmt:setLocale value="pt_BR"/><fmt:formatNumber type="currency" value="${participacao.desconto}" /></td>
+						<td><fmt:setLocale value="pt_BR"/><fmt:formatNumber type="currency" value="${participacao.cachePago}" /></td>
 					</tr>
 				</c:forEach>
 			</tbody>

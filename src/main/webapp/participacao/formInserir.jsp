@@ -68,7 +68,7 @@
 					no cache:</label>
 				<div class="col-sm-5">
 					<input type="text" name="desconto" id="desconto"
-						value="${item.desconto}" class="form-control" />
+						value="${participacao.desconto}" class="form-control" />
 				</div>
 			</div>
 			<div class="form-group">

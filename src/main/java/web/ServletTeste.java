@@ -1,22 +1,14 @@
 package web;
 
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
-import dominio.Artista;
 import dominio.Filme;
-import dominio.Participacao;
-import erro.Excessao;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import persistencia.ArtistaDAO;
 import persistencia.FilmeDAO;
-import persistencia.ParticipacaoDAO;
 
 
 public class ServletTeste extends HttpServlet {
