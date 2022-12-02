@@ -39,7 +39,11 @@ public class ParticipacaoInserir extends HttpServlet {
 		try {
 			participacaoDAO.validar(participacao);
 			participacaoDAO.salvar(participacao);
-			Filme filme = filmeDAO.buscarPorCod(participacao.getFilme().getCodFilme());
+			Long codFilme=participacao.getFilme().getCodFilme();
+			Filme filme = filmeDAO.buscarPorCod(codFilme);
+			// pega todas as participacoes que pertencem a este filme
+			List<Participacao> participacoes = participacaoDAO.buscarPorCodFilme(codFilme);
+			filme.setParticipacoes(participacoes);
 			request.setAttribute("filme", filme);
 			request.getRequestDispatcher(DESTINO).forward(request, response);
 		} catch (Excessao e) {

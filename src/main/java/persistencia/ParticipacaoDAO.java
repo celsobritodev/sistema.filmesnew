@@ -313,6 +313,44 @@ public class ParticipacaoDAO {
 			return participacao;
 
 	}
+		
+		// busca participacoes em um filme
+		public List<Participacao> buscarPorCodFilme(Long codFilme) {
+			String sql = "SELECT * FROM TB_PARTICIPACAO WHERE codFilme LIKE ?";
+			PreparedStatement preparador;
+			List<Participacao> participacaos = new ArrayList<Participacao>();
+			try {
+				preparador = con.prepareStatement(sql);
+				preparador.setLong(1, codFilme);
+				ResultSet resultado = preparador.executeQuery();
+
+				while (resultado.next()) {
+					Participacao participacao = new Participacao();
+					participacao = new Participacao();
+					participacao.setCodParticipacao(resultado.getLong("codParticipacao"));
+					
+					long codArtista = resultado.getLong("codArtista");
+					ArtistaDAO artistaDAO = new ArtistaDAO();
+					participacao.setArtista((artistaDAO.buscarPorCod(codArtista)));
+					
+					
+					FilmeDAO filmeDAO = new FilmeDAO();
+					participacao.setFilme(filmeDAO.buscarPorCod(codFilme));			
+					
+					participacao.setDesconto(resultado.getBigDecimal("desconto"));
+					participacao.setPersonagem(resultado.getString("personagem"));
+					participacaos.add(participacao);
+				}
+
+				preparador.close();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return participacaos;
+
+		}
+		
 	
 	
 	
